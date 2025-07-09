@@ -19,11 +19,32 @@
     */
 
     //ENTRADA
+    let anosCarreira = Number(prompt("Informe quantos anos de carreira possui:"));
+    let projetosPesquisa = Number(prompt("Informe a quantidade de Projetos de Pesquisa que já coordenou:"));
+    let projetosExtensao = Number(prompt("Informe a quantidade de Projetos de Extensão que orientou:"));
+    let tccsOrientados = Number(prompt("Informe a quantidade de TCCs que já orientou:"));
 
 
     //PROCESSAMENTO
+    if (isNaN(anosCarreira) || isNaN(projetosPesquisa) || isNaN(projetosExtensao) || isNaN(tccsOrientados) ||
+        anosCarreira < 0 || projetosPesquisa < 0 || projetosExtensao < 0 || tccsOrientados < 0) {
+        alert("Por favor, insira valores válidos.");
+    } else {
+        let pontos = (anosCarreira * 2.5) + (projetosPesquisa * 5) + (projetosExtensao * 5) + (tccsOrientados * 3);
+        let classificacao;
+
+        if (pontos <= 30) {
+            classificacao = "CONVIDADO";
+        } else if (pontos <= 50) {
+            classificacao = "AGREGADO";
+        } else {
+            classificacao = "TITULAR";
+        }
 
     
     //SAÍDA
+        alert(`Pontos: ${pontos} 
+        Classificação: ${classificacao}`);
+    }
 
 </script>

@@ -15,10 +15,28 @@
     */
 
     //ENTRADA
-
+    let salario = Number(prompt("Informe o valor do seu salário:"));
 
     //PROCESSAMENTO
+ if (isNaN(salario) || salario < 0) {
+        alert("Por favor, insira um valor válido para o salário.");
+    } else {
+        let aumento;
+        if (salario <= 2000) {
+            aumento = salario * 0.15;
+        } else if (salario <= 4000) {
+            aumento = salario * 0.10;
+        } else if (salario <= 7000) {
+            aumento = salario * 0.075;
+        } else {
+            aumento = salario * 0.05;
+        }
 
+        let novoSalario = salario + aumento;
+        alert(`Seu salário original era R$ ${salario} 
+         Aumento: R$ ${aumento} 
+         Novo salário: R$ ${novoSalario}.`);
+    }
     
     //SAÍDA
 

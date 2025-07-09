@@ -12,11 +12,36 @@
     */
 
     //ENTRADA
+    let salario = Number(prompt("Informe o valor do seu salário mensal:"));
+    let desejaAuxilio = prompt("Você deseja receber auxílio transporte? (sim/não)");
+    let utilizaVeiculo = prompt("Você utiliza veículo próprio para se locomover ao trabalho? (sim/não)");
 
 
     //PROCESSAMENTO
+    if (isNaN(salario) || salario < 0 || (desejaAuxilio !== "sim" && desejaAuxilio !== "não") || (utilizaVeiculo !== "sim" && utilizaVeiculo !== "não")) {
+        alert("Por favor, insira valores válidos.");
+    } else {
+        let desconto = 0;
+        let adicional = 0;
 
+        if (desejaAuxilio === "sim" || utilizaVeiculo === "sim") {
+            desconto = salario * 0.06;
+
+            if (utilizaVeiculo === "sim") {
+                adicional = 200; 
+            } else {
+                adicional = 150;
+            }
+        }
+
+        let salarioFinal = salario - desconto + adicional;
+
+     
     
     //SAÍDA
+    alert(`Desconto: R$ ${desconto} 
+        Adicional: R$ ${adicional} 
+        Salário final: R$ ${salarioFinal}`);
+    }
 
 </script>

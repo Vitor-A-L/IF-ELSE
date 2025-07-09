@@ -12,10 +12,32 @@
     */
 
     //ENTRADA
+    let valorComputador = Number(prompt("Informe o valor do computador:"));
+    let formaPagamento = prompt("Informe a forma de pagamento (B para Boleto, D para Dinheiro, P para PIX):").toUpperCase();
+
 
 
     //PROCESSAMENTO
+ 
+    if (isNaN(valorComputador) || valorComputador < 0 || (formaPagamento !== "B" && formaPagamento !== "D" && formaPagamento !== "P")) {
+        alert("Por favor, insira valores válidos para o valor do computador e a forma de pagamento.");
+    } else {
+        let desconto = 0;
 
+        if (formaPagamento === "B") {
+            desconto = valorComputador * 0.03; 
+        } else if (formaPagamento === "D") {
+            desconto = valorComputador * 0.05; 
+        } else if (formaPagamento === "P") {
+            desconto = valorComputador * 0.10; 
+        }
+
+        let valorFinal = valorComputador - desconto;
+
+        alert(`Valor do computador: R$ ${valorComputador} 
+        Desconto: R$ ${desconto} 
+        Valor final: R$ ${valorFinal}`);
+    }
     
     //SAÍDA
 

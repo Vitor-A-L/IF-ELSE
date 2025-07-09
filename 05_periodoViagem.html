@@ -11,9 +11,30 @@
     */
 
     //ENTRADA
+    let distanciaViagem = Number(prompt("Informe a distância da viagem em quilômetros:"));
+    let kmPorDia = Number(prompt("Informe quantos quilômetros pretende viajar por dia:"));
+    
 
 
     //PROCESSAMENTO
+    if (isNaN(distanciaViagem) || isNaN(kmPorDia) || distanciaViagem <= 0 || kmPorDia <= 0) {
+        alert("Por favor, insira valores válidos para a distância e a quantidade de quilômetros por dia.");
+    } else {
+        let diasNecessarios = (distanciaViagem / kmPorDia);
+
+        let mensagem;
+        if (diasNecessarios <= 3) {
+            mensagem = "Qualquer Período";
+        } else if (diasNecessarios <= 10) {
+            mensagem = "Férias de Julho";
+        } else if (diasNecessarios <= 20) {
+            mensagem = "Férias de Verão";
+        } else {
+            mensagem = "Deverá Trabalhar Remoto";
+        }
+
+        alert(`A viagem levará ${diasNecessarios} dias. Você poderá realizar a viagem durante: ${mensagem}.`);
+    }
 
     
     //SAÍDA

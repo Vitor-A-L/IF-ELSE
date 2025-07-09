@@ -15,10 +15,34 @@
     */
 
     //ENTRADA
+    let viagens = Number(prompt("Quantas viagens foram realizadas por dia?"));
+    let cargo = prompt("Qual o cargo que ocupa? (Motorista ou Cobrador)").toLowerCase();
 
 
     //PROCESSAMENTO
 
+    if (isNaN(viagens) || viagens < 0 || (cargo !== "motorista" && cargo !== "cobrador")) {
+        alert("Por favor, insira valores válidos para as viagens e o cargo.");
+    } else {
+        let diaria = 100;
+        let adicional = 0;
+
+        if (cargo === "motorista") {
+            if (viagens <= 10) {
+                adicional = diaria * 0.20; 
+            } else {
+                adicional = diaria * 0.35; 
+            }
+        } else if (cargo === "cobrador") {
+            if (viagens > 10) {
+                adicional = diaria * 0.10; 
+            }
+        }
+
+        let valorFinal = diaria + adicional;
+        alert(`Cargo: ${cargo} 
+        Valor final recebido: R$ ${valorFinal}`);
+    }
     
     //SAÍDA
 

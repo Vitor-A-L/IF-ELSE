@@ -13,11 +13,26 @@
     */
 
     //ENTRADA
+    let codigoProduto = Number(prompt("Informe o código do produto: (1 a 20)"));
 
-
-    //PROCESSAMENTO
-
-    
+     //PROCESSAMENTO
+    if (isNaN(codigoProduto) || codigoProduto < 1 || codigoProduto > 20) {
+        alert("Código inválido");
+    }
+    if (codigoProduto === 1) {
+        alert("Alimento não-perecível");
+    } else if ([2, 3, 4].includes(codigoProduto)) {
+        alert("Alimento perecível");
+    } else if ([5, 6].includes(codigoProduto)) {
+        alert("Vestuário");
+    } else if (codigoProduto === 7) {
+        alert("Higiene Pessoal");
+    } else if (codigoProduto >= 8 && codigoProduto <= 15) {
+        alert("Limpeza e Utensílios Domésticos");
+    } else if (codigoProduto >= 16 && codigoProduto <= 20) {
+        alert("Outros");
+    }
+     
     //SAÍDA
 
 </script>

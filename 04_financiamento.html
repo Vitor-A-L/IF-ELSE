@@ -10,10 +10,27 @@
     */
 
     //ENTRADA
+    let valorImovel = Number(prompt("Informe o valor do imóvel:"));
+    let anosFinanciamento = Number(prompt("Informe em quantos anos será realizado o financiamento:"));
+    let salarioComprador = Number(prompt("Informe o salário do comprador:"));
+
 
 
     //PROCESSAMENTO
 
+    if (isNaN(valorImovel) || isNaN(anosFinanciamento) || isNaN(salarioComprador) || valorImovel <= 0 || anosFinanciamento <= 0 || salarioComprador <= 0) {
+        alert("Por favor, insira valores válidos.");
+    } else {
+        let mesesFinanciamento = anosFinanciamento * 12;
+        let valorPrestacao = valorImovel / mesesFinanciamento;
+        let limitePrestacao = salarioComprador * 0.30;
+
+        if (valorPrestacao > limitePrestacao) {
+            alert(`Financiamento negado! Valor da prestação mensal: R$ ${valorPrestacao}, que excede o limite de 30% do salário.`);
+        } else {
+            alert(`Financiamento concedido! Valor da prestação mensal: R$ ${valorPrestacao}.`);
+        }
+    }
     
     //SAÍDA
 

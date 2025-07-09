@@ -12,11 +12,36 @@
     */
 
     //ENTRADA
-
+    let precoTransporteSP = Number(prompt("Informe o preço do transporte aéreo para São Paulo:"));
+    let precoTransporteRJ = Number(prompt("Informe o preço do transporte aéreo para o Rio de Janeiro:"));
+    let precoHotelSP = Number(prompt("Informe o preço do hotel para São Paulo:"));
+    let precoHotelRJ = Number(prompt("Informe o preço do hotel para o Rio de Janeiro:"));
+    let diasEstadia = Number(prompt("Informe quantos dias pretende ficar no destino:"));
 
     //PROCESSAMENTO
+    if (isNaN(precoTransporteSP) || isNaN(precoTransporteRJ) || isNaN(precoHotelSP) || isNaN(precoHotelRJ) || isNaN(diasEstadia) || precoTransporteSP < 0 || precoTransporteRJ < 0 || precoHotelSP < 0 || precoHotelRJ < 0 || diasEstadia <= 0) {
+        alert("Por favor, insira valores válidos para os preços e a quantidade de dias.");
+    } else {
+        let custoTotalSP = precoTransporteSP + (precoHotelSP * diasEstadia);
+        let custoTotalRJ = precoTransporteRJ + (precoHotelRJ * diasEstadia);
+
+        let destinoFinal;
+        let custoFinal;
+
+        if (custoTotalSP < custoTotalRJ) {
+            destinoFinal = "São Paulo";
+            custoFinal = custoTotalSP;
+        } else {
+            destinoFinal = "Rio de Janeiro";
+            custoFinal = custoTotalRJ;
+        }
+
+       
 
     
     //SAÍDA
-
+ alert(`Destino final: ${destinoFinal} 
+        Custo final da viagem: R$ ${custoFinal}`);
+    }
+    
 </script>
